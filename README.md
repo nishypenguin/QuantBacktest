@@ -136,6 +136,20 @@ Use of OpenAI API requires a budget. We this being limited, I tested less data u
 
 ## Findings
 
+Momentum Strategy over 8 years:
+GOOG - Return of -16.6%
+AAPL - Return of -19.7%
+TSLA - Return of 22.4%
 
+
+Inverse Momentum Strategy over 8 years:
+GOOG - Return of -9.68%
+AAPL - Return of -15.7%
+TSLA - Return of 17.2%
+
+Sentiment analysis over roughly 11 weeks:
+GOOG - Return of 11.5% 
+AAPL - Return of 1.62%
+TSLA - Return of -1.68%
 
 ---
