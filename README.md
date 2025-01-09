@@ -31,22 +31,21 @@ A Python-based backtesting framework for testing swing-trading strategies on var
 ```plaintext
 .
 ├── swing_strategy.ipynb       # Jupyter notebook orchestrating all backtests
-├── strategy.py                # Core Backtest class & strategy logic
-├── get_news.py                # NewsSentiment class (not shown here but referenced)
-├── 1_day_tesla_trend_momentum_strategy_backtest.csv
-├── 1_day_tesla_inverse_trend_momentum_strategy_backtest.csv
-├── 1_day_TSLA_news_strategy_backtest.csv
-└── ... (other CSV outputs) ...
+├── strategy.py                # Technical backtest class & strategy logic
+├── strategy_2.py              # News sentiment backtest & strategy logic
+├── get_news.py                # NewsSentiment and analyser files 
+├── 1_day_TSLA_trend_momentum_strategy_backtest.csv
+├── 1_day_TSLA_inverse_trend_momentum_strategy_backtest.csv
+├── AI_TSLA_Data.csv
+└── ... (other CSV outputs for different stocks) ...
 ```
 ---
 
 ## Installation & Setup
 
 Clone or Download this repository:
-git clone https://github.com/yourusername/swing-strategy-backtester.git
+git clone https://github.com/nishypenguin/QuantBacktest.git
 cd swing-strategy-backtester
-Install Dependencies (preferably in a virtual environment):
-pip install -r requirements.txt
 Make sure you have the following Python libraries installed:
 
 pandas
@@ -54,6 +53,7 @@ numpy
 yfinance
 matplotlib
 alpaca_trade_api
+OpenAI api
 (Optional) Configure News API:
 If the get_news.py file relies on API keys for sentiment analysis, make sure to:
 Obtain the required API key(s).
@@ -97,9 +97,11 @@ This strategy is similar to the trend momentum strategy but applies inverse logi
 Buy Condition:
 Price < VWAP
 RSI crossing above 70 (from below)
+ADX > 25
 Sell Condition:
 Price > VWAP
 RSI crossing below 30 (from above)
+ADX > 25
 
 3. News-Based Strategy
 This strategy integrates market sentiment obtained via the NewsSentiment class. Sentiment values (Buy, Sell, or Neutral) guide trading decisions.
@@ -109,11 +111,11 @@ Sell: Enter a short position.
 Neutral: No position is taken.
 
 4. Intraday Strategy (1-Minute Bars)
-Designed for short-term traders, this strategy operates on 1-minute bars. It combines VWAP, RSI, and news sentiment to make real-time decisions.
+Designed for short-term traders, this strategy operates on 1-minute bars. It combines VWAP, RSI, and news sentiment to make real-time decisions. (In the works)
 
 ---
 
-## Customization
+## Customisation
 
 Adjust Technical Indicators:
 Modify RSI windows, ADX thresholds, VWAP configurations in strategy.py to test different parameter values, or AI prompts.
